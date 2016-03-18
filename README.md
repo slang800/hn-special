@@ -38,6 +38,3 @@ Please see the [contributing guide &raquo;](CONTRIBUTING.md)
 
 ## Notable mentions
 Many thanks to [@taeram](https://twitter.com/taeram/), [@obeattie](https://twitter.com/obeattie), [@bjenik](https://twitter.com/bjenik), sebmck and [@messaged](https://twitter.com/messaged) for the contributions!
-
-## License
-HN Special is licensed under the [MIT License](LICENSE.txt).

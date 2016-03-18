@@ -2,14 +2,14 @@
   "name": "hn-special",
   "description": "This extension refreshes the visual style of Hacker News and adds a few features, like infinite scrolling. Everything is toggleable.",
   "version": "1.4.4",
-  "author": "Gabriele Cirulli",
+  "author": "Sean Lang <slang800@gmail.com>",
   "engines": {
     "firefox": ">=38.0"
   },
   "icon": "./promo/icons/icon48.png",
   "icon64": "./promo/icons/icon64.png",
   "id": "hn-special@gabrielecirulli.github.io",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "main": "index.js",
   "title": "HN Special - An addition to Hacker News"
 }

@@ -1,1 +1,1 @@
-document.documentElement.classList.add("hnspecial-theme-gray-visited-links");
+document.documentElement.classList.add('hnspecial-theme-gray-visited-links')

@@ -1,125 +1,125 @@
-(function () {
-  var _ = {};
+;(function () {
+  var _ = {}
 
   _.toArray = function (collection) {
-    return [].slice.call(collection);
-  };
+    return [].slice.call(collection)
+  }
 
   _.$ = function (selector, context) {
-      return _.toArray((context ? context : document).querySelectorAll(selector));
-  };
+    return _.toArray((context ? context : document).querySelectorAll(selector))
+  }
 
   _.load = function (callback) {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", callback);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback)
     } else {
-      callback.call(document);
+      callback.call(document)
     }
-  };
+  }
 
   _.replaceTag = function (container, tag) {
-    var parent = container.parentElement;
-    var newContainer = _.createElement(tag);
+    var parent = container.parentElement
+    var newContainer = _.createElement(tag)
     _.toArray(container.classList).forEach(function (name) {
-      newContainer.classList.add(name);
-    });
+      newContainer.classList.add(name)
+    })
     while (container.firstChild) {
-      newContainer.appendChild(container.firstChild);
+      newContainer.appendChild(container.firstChild)
     }
-    parent.replaceChild(newContainer, container);
+    parent.replaceChild(newContainer, container)
 
-    return newContainer;
-  };
+    return newContainer
+  }
 
   _.request = function (url, method, callback) {
-    var request = new XMLHttpRequest();
-    request.open(method, url, true);
+    var request = new XMLHttpRequest()
+    request.open(method, url, true)
 
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
-        callback(request.responseText);
+        callback(request.responseText)
       }
-    };
+    }
 
-    request.send();
+    request.send()
 
-    return request;
-  };
+    return request
+  }
 
   _.createElement = function (type, options) {
-    var elem = document.createElement(type);
+    var elem = document.createElement(type)
     if (options) {
-      if (options.content) elem.innerHTML = options.content;
+      if (options.content) elem.innerHTML = options.content
       if (options.classes) {
         options.classes.forEach(function (name) {
-          elem.classList.add(name);
-        });
+          elem.classList.add(name)
+        })
       }
       if (options.attributes) {
         for (var attr in options.attributes) {
-          elem.setAttribute(attr, options.attributes[attr]);
+          elem.setAttribute(attr, options.attributes[attr])
         }
       }
     }
 
-    return elem;
-  };
+    return elem
+  }
 
   _.dispatch = function (event, target) {
-    event = new Event(event);
-    target.dispatchEvent(event);
-  };
+    event = new Event(event)
+    target.dispatchEvent(event)
+  }
 
   _.naturalWords = function (key) {
-    return key.replace(/_/g, " ").replace(/^\S/, function (char) { return char.toUpperCase(); });
-  };
+    return key.replace(/_/g, ' ').replace(/^\S/, function (char) { return char.toUpperCase(); })
+  }
 
   _.lowerFirst = function (string) {
-    return string.charAt(0).toLowerCase() + string.substr(1, string.length);
-  };
+    return string.charAt(0).toLowerCase() + string.substr(1, string.length)
+  }
 
   _.clone = function (object) {
-    return JSON.parse(JSON.stringify(object));
-  };
+    return JSON.parse(JSON.stringify(object))
+  }
 
   _.isTitleLink = function (link) {
-    return link.parentElement.classList.contains("title") && !link.getAttribute("href").match(/^news\?\S+/) && !link.classList.contains("hnspecial-infinite-pause");
-  };
+    return link.parentElement.classList.contains('title') && !link.getAttribute('href').match(/^news\?\S+/) && !link.classList.contains('hnspecial-infinite-pause')
+  }
 
   _.isCommentLink = function (link) {
-    if (!link.getAttribute("href").match(/^reply\?id/)) {
-      var parent = link.parentElement;
-      while (parent.tagName.toLowerCase() !== "td") {
-        if (parent.tagName.toLowerCase() === "span" && parent.classList.contains("comment")) return true;
-        parent = parent.parentElement;
+    if (!link.getAttribute('href').match(/^reply\?id/)) {
+      var parent = link.parentElement
+      while (parent.tagName.toLowerCase() !== 'td') {
+        if (parent.tagName.toLowerCase() === 'span' && parent.classList.contains('comment')) return true
+        parent = parent.parentElement
       }
     }
-    return false;
-  };
+    return false
+  }
 
   _.isCommentPage = function () {
-    var title = document.getElementsByClassName("title")[0];
-    var link  = title && title.children[1];
-    return title && link && link.nodeName.toLowerCase() === "a" && !link.getAttribute("href").match(/^\/x\?.+/);
-  };
+    var title = document.getElementsByClassName('title')[0]
+    var link = title && title.children[1]
+    return title && link && link.nodeName.toLowerCase() === 'a' && !link.getAttribute('href').match(/^\/x\?.+/)
+  }
 
   _.isListingPage = function () {
-    var title = document.getElementsByClassName("title")[0];
-    return title && title.parentElement.childElementCount === 3;
-  };
+    var title = document.getElementsByClassName('title')[0]
+    return title && title.parentElement.childElementCount === 3
+  }
 
   _.sendMessage = function (target, params, callback) {
     if (HNSpecial.isChrome) {
-      var parts = target.split("#");
+      var parts = target.split('#')
       chrome.runtime.sendMessage({
         module: parts[0],
         action: parts[1],
         params: params
-      }, callback);
+      }, callback)
     } else {
-      self.port.emit( target, params );
+      self.port.emit(target, params)
     }
-  };
+  }
 
-  this._ = _;
-}).call(this);
+  this._ = _
+}).call(this)

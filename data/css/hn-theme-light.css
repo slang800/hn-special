@@ -283,14 +283,6 @@ html.hnspecial-theme p {
   font-weight: 200;
   word-wrap: break-word;
 }
-html.hnspecial-theme textarea,
-html.hnspecial-theme input[type="text"] {
-  font: 15px/1.5 Helvetica Neue, Arial, sans-serif;
-  color: inherit;
-  padding: 5px 8px;
-  margin: 0;
-  font-weight: 200;
-}
 html.hnspecial-theme input:focus,
 html.hnspecial-theme button:focus {
   outline: none;
@@ -303,9 +295,13 @@ html.hnspecial-theme textarea {
 html.hnspecial-theme textarea,
 html.hnspecial-theme input[type="text"],
 html.hnspecial-theme input[type="password"] {
-  color: #555;
   background: #ccc;
   border: 1px solid #808080;
+  font: 15px/1.5 Helvetica Neue, Arial, sans-serif;
+  font-weight: 200;
+  padding: 5px 8px;
+  margin: 0;
+  color: #555;
 }
 html.hnspecial-theme pre {
   overflow: auto;

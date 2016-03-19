@@ -339,23 +339,14 @@ html.hnspecial-theme
         font-weight 200
         word-wrap break-word
 
-    textarea, input[type="text"]
-        font unquote(base-font)
-        color inherit
-        padding 5px 8px
-        margin 0
-        font-weight 200
-
-    input
-        &[type=submit], &[type=button]
-            @extend $hnspecial-button
+    input[type=submit], input[type=button]
+        @extend $hnspecial-button
 
     button.hnspecial-button
         @extend $hnspecial-button
 
-    input, button
-        &:focus
-            outline none
+    input:focus, button:focus
+        outline none
 
     textarea
         width 100%
@@ -363,9 +354,13 @@ html.hnspecial-theme
         resize vertical
 
     textarea, input[type="text"], input[type="password"]
-        color text-color
         background darken(page-background-color, 20%)
         border 1px solid darken(page-background-color, 50%)
+        font unquote(base-font)
+        font-weight 200
+        padding 5px 8px
+        margin 0
+        color text-color
 
     // Pre and code tags can stretch the page if not limited
     pre

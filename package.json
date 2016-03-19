@@ -3,6 +3,9 @@
   "description": "Refreshes the style of Hacker News and adds a few features, like infinite scrolling. Everything is toggleable.",
   "version": "1.4.4",
   "author": "Sean Lang <slang800@gmail.com>",
+  "devDependencies": {
+    "stylus": "^0.54.2"
+  },
   "engines": {
     "firefox": ">=38.0"
   },

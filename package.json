@@ -16,22 +16,28 @@
   "main": "index.js",
   "preferences": [
     {
-      "name": "visualTheme",
-      "title": "Visual Theme",
-      "type": "bool",
-      "value": true
-    },
-    {
-      "name": "darkTheme",
-      "title": "Dark Theme",
-      "type": "bool",
-      "value": false
-    },
-    {
-      "name": "highContrast",
-      "title": "High Contrast",
-      "type": "bool",
-      "value": false
+      "name": "theme",
+      "title": "Theme",
+      "type": "menulist",
+      "value": "light",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        },
+        {
+          "value": "high-contrast",
+          "label": "High Contrast"
+        }
+      ]
     },
     {
       "name": "grayVisitedLinks",

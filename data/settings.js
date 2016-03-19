@@ -12,7 +12,7 @@ function Settings() {
 
   // Quick hack to hide the document before the theme is fully loaded (to avoid
   // the ugly jump) It's animated in by the visual theme
-  if (prefs.visualTheme || prefs.highContrast ||
+  if (prefs.theme !== 'none' || prefs.highContrast ||
       prefs.grayVisitedLinks || prefs.stickyHeader) {
     document.documentElement.classList.add("hnspecial-theme-preload");
   }

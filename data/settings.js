@@ -422,7 +422,7 @@ Settings.prototype.applyRequirements = function (requirements, map) {
         self.updateSettings();
       }
 
-      // Add the change lisneners to propagate changes to mandatory switches
+      // Add the change listeners to propagate changes to mandatory switches
       subordinate.addEventListener("change", function () {
         if (this.checked) { // All mandatory checkboxes must be enabled too
           mandatory.forEach(function (current) {

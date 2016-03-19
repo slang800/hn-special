@@ -22,7 +22,6 @@ HNSpecial.settings.registerModule("visual_theme", function () {
 
     // Store the topcolor so we can use it later
     var topcolor = _.$('table > tbody > tr td')[0].bgColor;
-    //if (topcolor == "#ff6600") { topcolor = "#ff8937"; } // Replace default HN color with HN Special color
 
     // Get rid of styling attributes embedded in code
     stripAttributes();
@@ -163,14 +162,6 @@ HNSpecial.settings.registerModule("visual_theme", function () {
 
       // Wrap the stray pieces of text in comments into their own <p> and add a class to the upvote td
       _.$("span.comment").forEach(function (elem) {
-        // Remove font tags and take out the inner elements
-        /*_.toArray(elem.getElementsByTagName("font")).forEach(function (font) {
-          _.toArray(font.childNodes).forEach(function (child) {
-            font.parentElement.insertBefore(child, font);
-          });
-          font.remove();
-        });*/
-
         // Make sure each stray piece (stuff that is not in a paragraph) gets grouped in paragraphs
         var stops = ["p", "pre"]; // Elements that should not be joined in the same paragraph
         var current = elem.childNodes[0]; // Start from the first node

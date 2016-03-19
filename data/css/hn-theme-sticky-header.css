@@ -1,0 +1,33 @@
+.hnspecial-theme-sticky-header .hnspecial-mark-all-as-read-container {
+  width: 900px;
+  margin: 0 auto;
+  padding-left: 25px !important;
+  padding-top: 0px !important;
+  color: #fff !important;
+}
+.hnspecial-theme-sticky-header .hnspecial-mark-all-as-read-container button {
+  color: #fff !important;
+  font-weight: 300 !important;
+}
+.hnspecial-theme-sticky-header table:hover + .hnspecial-mark-all-as-read-container,
+.hnspecial-theme-sticky-header .hnspecial-mark-all-as-read-container:hover {
+  height: 35px;
+}
+.hnspecial-theme-sticky-header .hnspecial-message-container {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+.hnspecial-theme-sticky-header body > center > table > tbody > tr:first-child {
+  height: 70px;
+}
+.hnspecial-theme-sticky-header body > center > table > tbody > tr:first-child > td {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+.hnspecial-theme-sticky-header body > center > table > tbody > tr:first-child > td > table {
+  max-width: 900px;
+  margin: 0 auto;
+}

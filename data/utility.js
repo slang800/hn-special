@@ -111,9 +111,12 @@
   _.sendMessage = function (target, params, callback) {
     if (HNSpecial.isChrome) {
       var parts = target.split("#");
-      chrome.runtime.sendMessage({ module: parts[0], action: parts[1], params: params }, callback);
-    }
-    else {
+      chrome.runtime.sendMessage({
+        module: parts[0],
+        action: parts[1],
+        params: params
+      }, callback);
+    } else {
       self.port.emit( target, params );
     }
   };

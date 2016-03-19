@@ -14,5 +14,79 @@
   "id": "hn-special@gabrielecirulli.github.io",
   "license": "GPL-3.0",
   "main": "index.js",
+  "preferences": [
+    {
+      "name": "visualTheme",
+      "title": "Visual Theme",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "darkTheme",
+      "title": "Dark Theme",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "highContrast",
+      "title": "High Contrast",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "grayVisitedLinks",
+      "title": "Gray Visited Links",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "infiniteScrolling",
+      "title": "Infinite Scrolling",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "openLinksInNewTabs",
+      "title": "Open Links In New Tabs",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "highlightLinksWhenReturning",
+      "title": "Highlight Links When Returning",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "accurateDomainNames",
+      "title": "Accurate Domain Names",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "foldComments",
+      "title": "Fold Comments",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "markAsRead",
+      "title": "Mark As Read",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "stickyHeader",
+      "title": "Sticky Header",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "userTooltips",
+      "title": "User Tooltips",
+      "type": "bool",
+      "value": false
+    }
+  ],
   "title": "HN Special - An addition to Hacker News"
 }

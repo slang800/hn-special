@@ -1,5 +1,7 @@
-var self    = require('sdk/self');
+var self = require('sdk/self');
 var pageMod = require('sdk/page-mod');
+var {prefs} = require("sdk/simple-prefs");
+let {Cc, Ci} = require('chrome');
 
 function notDataUrl(name) {
   return self.data.url(name).replace("/data/", "/");
@@ -9,16 +11,13 @@ function notDataRead(name) {
   return self.data.load("../" + name);
 }
 
-let { Cc, Ci } = require('chrome');
-
 var modules = {
   mark_as_read: {
     toggle: function (params) {
       var self = this;
       let { search } = require("sdk/places/history");
 
-      search(params)
-        .on("end", function (results) {
+      search(params).on("end", function (results) {
         if (results.length > 0) {
           self.delete(params);
         } else {
@@ -43,36 +42,69 @@ var modules = {
   }
 };
 
+getModule = function (name) {
+  return self.data.url("modules/" + name + ".js")
+}
+
+var contentStyles;
+var contentScripts = [
+  self.data.url("utility.js"),
+  self.data.url("settings.js")
+]
+
+if (prefs.visualTheme) {
+  contentScripts.push(getModule("visual-theme"))
+  if (prefs.darkTheme) {
+    contentStyles = ['./css/hn-theme-dark.css'];
+  } else if (prefs.highContrast) {
+    contentStyles = ['./css/hn-theme-light-contrast.css'];
+  } else {
+    contentStyles = ['./css/hn-theme-light.css'];
+  }
+}
+if (prefs.accurateDomainNames) {
+  contentScripts.push(getModule("accurate-domain-names"))
+}
+if (prefs.foldComments) {
+  contentScripts.push(getModule("fold-comments"))
+}
+if (prefs.highlightLinksWhenReturning) {
+  contentScripts.push(getModule("highlight-links-when-returning"))
+}
+if (prefs.infiniteScrolling) {
+  contentScripts.push(getModule("infinite-scrolling"))
+}
+if (prefs.markAsRead) {
+  contentScripts.push(getModule("mark-as-read"))
+}
+if (prefs.openLinksInNewTabs) {
+  contentScripts.push(getModule("open-links-in-new-tabs"))
+}
+if (prefs.userTooltips) {
+  contentScripts.push(getModule("user-tooltips"))
+}
+
+if (prefs.grayVisitedLinks) {
+  contentStyles.push("./css/hn-theme-gray-visited-links.css")
+}
+if (prefs.stickyHeader) {
+  contentStyles.push("./css/hn-theme-sticky-header.css")
+}
+
 pageMod.PageMod({
-  include: "*.ycombinator.com",
+  include: "https://news.ycombinator.com/*",
   attachTo: ["top", "existing"],
-  contentScriptFile: [
-    notDataUrl("lib/tools/utility.js"),
-    notDataUrl("lib/settings.js"),
-    notDataUrl("lib/modules/visual_theme.js"),
-    notDataUrl("lib/modules/dark_theme.js"),
-    notDataUrl("lib/modules/high_contrast.js"),
-    notDataUrl("lib/modules/gray_visited_links.js"),
-    notDataUrl("lib/modules/open_links_in_new_tabs.js"),
-    notDataUrl("lib/modules/highlight_links_when_returning.js"),
-    notDataUrl("lib/modules/infinite_scrolling.js"),
-    notDataUrl("lib/modules/accurate_domain_names.js"),
-    notDataUrl("lib/modules/mark_as_read.js"),
-    notDataUrl("lib/modules/fold_comments.js"),
-    notDataUrl("lib/modules/sticky_header.js"),
-    notDataUrl("lib/modules/user_tooltips.js")
-  ],
+  contentScriptFile: contentScripts,
   contentScriptOptions: {
     urlBase: notDataUrl(""),
-    defaultOptions: notDataRead("lib/defaults.json")
+    defaultOptions: JSON.stringify(prefs)
   },
+  contentStyleFile: contentStyles,
   onAttach: function(worker) {
-    for(var moduleName in modules)
-    {
+    for(var moduleName in modules) {
       var module = modules[moduleName];
 
-      for(var actionName in modules[moduleName])
-      {
+      for(var actionName in modules[moduleName]) {
         worker.port.on(moduleName + "#" + actionName, function(params) {
           module[actionName].call(module, params);
         });

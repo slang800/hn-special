@@ -466,10 +466,6 @@ html.hnspecial-theme
         width 1px
         background comment-spacer-color
 
-    div.votearrow
-        width 10px !important
-        height 10px !important
-
     // Shows HN Special color next to topcolor input
     input[name="topcolor"] + p
         margin-left 20px
@@ -586,20 +582,6 @@ html.hnspecial-theme
                                 if num == 3
                                     padding-right 30px !important
 
-                    // Upvote/downvote arrow
-                    a[id^=up_], a[id^=down_]
-                        opacity 0.3
-                        display inline-block
-                        transition all 150ms ease
-
-                        &:hover
-                            opacity 0.6
-                            // -webkit-transform scale(1.7)
-
-                        &:active
-                            opacity 0.3
-                            // -webkit-transform scale(1)
-
                     // Post area
                     > table:first-of-type
                         width 100%
@@ -706,12 +688,6 @@ html.hnspecial-theme
                         background darken(page-background-color, 20%)
                         border 1px solid darken(page-background-color, 50%)
 
-    // Gray visited links
-    &.hnspecial-theme-gray-visited-links
-        .title a
-            &:visited
-                color #aaa !important
-
     // Mark all as read
     table:hover + .hnspecial-mark-all-as-read-container, .hnspecial-mark-all-as-read-container:hover
         height 50px
@@ -753,41 +729,31 @@ html.hnspecial-theme
     .hnspecial-fold-comment-button
         @extend $hnspecial-text-button
 
-    // Fixed header
-    &.hnspecial-theme-sticky-header
-        .hnspecial-mark-all-as-read-container
-            width 900px
-            margin 0 auto
-            padding-left 25px !important
-            padding-top 0px !important
-            color white !important
+// Upvote/downvote arrow
+.votelinks
+    a[id^=up_], a[id^=down_]
+        opacity 0.3
+        display inline-block
+        transition all 150ms ease
 
-            button
-                color white !important
-                font-weight 300 !important
+        &:hover
+            opacity 0.6
 
-        table:hover + .hnspecial-mark-all-as-read-container,
-        .hnspecial-mark-all-as-read-container:hover
-            height 35px
+        &:active
+            opacity 0.3
 
-        .hnspecial-message-container
-            padding-top 15px
-            padding-bottom 5px
+.votearrow
+    // create triangles with CSS so we don't need an extra asset
+    width 0 !important
+    height 0 !important
+    border-left: 5px solid transparent
+    border-right: 5px solid transparent
 
-        body > center > table > tbody > tr:first-child
-            height: (30px + (20px * 2))
+    &[title="upvote"]
+      border-bottom: 7px solid black
 
-            > td
-                position fixed
-                top 0
-                left 0
-                width 100%
-                z-index 10 // Must be the topmost element on the page
-                // background base-color
-
-                > table
-                    max-width 900px
-                    margin 0 auto
+    &[title="downvote"]
+      border-top: 7px solid black
 
 // END Visual theme specific styles
 

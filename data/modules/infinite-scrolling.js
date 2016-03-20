@@ -32,7 +32,7 @@ function checkScroll () {
       if (!notice) {
         var elem = _.createElement('div', {
           classes: ['hnspecial-infinite-search-notice'],
-          content: 'Please keep scrolling if you want to access the search field and the footer. <span>(click to close)</span>'
+          content: 'Please keep scrolling if you want to access the footer. <span>(click to close)</span>'
         })
         elem.addEventListener('click', function () { this.classList.add('hnspecial-infinite-search-notice-hidden'); })
         document.body.addEventListener('click', function (e) {

@@ -92,6 +92,12 @@
       "title": "User Tooltips",
       "type": "bool",
       "value": false
+    },
+    {
+      "name": "removeSearchBar",
+      "title": "Remove Search Bar",
+      "type": "bool",
+      "value": true
     }
   ],
   "title": "HN Special - An addition to Hacker News"

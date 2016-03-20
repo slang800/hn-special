@@ -77,6 +77,9 @@ reloadPageMod = function () {
   if (prefs.openLinksInNewTabs) {
     contentScripts.push(getModule('open-links-in-new-tabs'))
   }
+  if (prefs.removeSearchBar) {
+    contentScripts.push(getModule('remove-search-bar'))
+  }
   if (prefs.userTooltips) {
     contentScripts.push(getModule('user-tooltips'))
   }

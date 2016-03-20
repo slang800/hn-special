@@ -73,25 +73,29 @@
       "name": "foldComments",
       "title": "Fold Comments",
       "type": "bool",
-      "value": true
+      "value": true,
+      "description": "Adds a button to expand or collapse comments and their children"
     },
     {
       "name": "markAsRead",
       "title": "Mark As Read",
       "type": "bool",
-      "value": false
+      "value": false,
+      "description": "Allows you to mark links as visited, or to mark an entire page of links as read. Warning: this will add/remove items from your browser history."
     },
     {
       "name": "stickyHeader",
       "title": "Sticky Header",
       "type": "bool",
-      "value": false
+      "value": false,
+      "description": "Keep the header at the top of the page while scrolling"
     },
     {
       "name": "userTooltips",
       "title": "User Tooltips",
       "type": "bool",
-      "value": false
+      "value": false,
+      "description": "Show user stats when you mouse-over their name"
     },
     {
       "name": "removeSearchBar",

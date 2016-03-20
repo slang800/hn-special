@@ -1,5 +1,4 @@
 // Tweaks the content of the pages to allow for better styling
-// TODO: refactor code
 var ignore = ['/rss', '/bigrss']
 
 if (ignore.indexOf(location.pathname) === -1) {

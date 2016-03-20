@@ -1,7 +1,8 @@
-var self = require('sdk/self')
-var pageMod = require('sdk/page-mod')
-var simplePrefs = require('sdk/simple-prefs')
 let {Cc, Ci} = require('chrome')
+let {search} = require('sdk/places/history')
+var pageMod = require('sdk/page-mod')
+var self = require('sdk/self')
+var simplePrefs = require('sdk/simple-prefs')
 
 function notDataUrl (name) {
   return self.data.url(name).replace('/data/', '/')
@@ -11,8 +12,6 @@ var modules = {
   mark_as_read: {
     toggle: function (params) {
       var self = this
-      let {search} = require('sdk/places/history')
-
       search(params).on('end', function (results) {
         if (results.length > 0) {
           self.delete(params)

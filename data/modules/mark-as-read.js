@@ -1,4 +1,7 @@
 var urls = []
+var sendMessage = function (target, params) {
+  self.port.emit(target, params)
+}
 
 function editLinks () {
   var subtexts = _.toArray(document.getElementsByClassName('subtext'))
@@ -19,7 +22,7 @@ function editLinks () {
 
       // Add the click listener
       button.addEventListener('click', function () {
-        _.sendMessage('mark_as_read#toggle', { url: url })
+        sendMessage('mark_as_read#toggle', {url: url})
       })
 
       // Insert the button into the page
@@ -54,7 +57,7 @@ if (_.isListingPage()) {
     var action = e.target === readButton ? 'add' : 'delete'
     var target = 'mark_as_read#' + action
     urls.forEach(function (url) {
-      _.sendMessage(target, { url: url })
+      sendMessage(target, {url: url})
     })
   }
 

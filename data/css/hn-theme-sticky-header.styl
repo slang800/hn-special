@@ -1,34 +1,33 @@
 // Fixed header
-.hnspecial-theme-sticky-header
-  .hnspecial-mark-all-as-read-container
-    width 900px
-    margin 0 auto
-    padding-left 25px !important
-    padding-top 0px !important
+.hnspecial-mark-all-as-read-container
+  width 900px
+  margin 0 auto
+  padding-left 25px !important
+  padding-top 0px !important
+  color white !important
+
+  button
     color white !important
+    font-weight 300 !important
 
-    button
-      color white !important
-      font-weight 300 !important
+table:hover + .hnspecial-mark-all-as-read-container,
+.hnspecial-mark-all-as-read-container:hover
+  height 35px
 
-  table:hover + .hnspecial-mark-all-as-read-container,
-  .hnspecial-mark-all-as-read-container:hover
-    height 35px
+.hnspecial-message-container
+  padding-top 15px
+  padding-bottom 5px
 
-  .hnspecial-message-container
-    padding-top 15px
-    padding-bottom 5px
+body > center > table > tbody > tr:first-child
+  height: (30px + (20px * 2))
 
-  body > center > table > tbody > tr:first-child
-    height: (30px + (20px * 2))
+  > td
+    position fixed
+    top 0
+    left 0
+    width 100%
+    z-index 10 // Must be the topmost element on the page
 
-    > td
-      position fixed
-      top 0
-      left 0
-      width 100%
-      z-index 10 // Must be the topmost element on the page
-
-      > table
-        max-width 900px
-        margin 0 auto
+    > table
+      max-width 900px
+      margin 0 auto

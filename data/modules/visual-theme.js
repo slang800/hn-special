@@ -46,21 +46,12 @@ if (ignore.indexOf(location.pathname) === -1) {
       messageContainer.remove()
 
       // Restore the message as a separate div
-      var complete = function () {
-        var header = container.firstChild.firstChild
-        var messageContainer = _.createElement('div', {
-          classes: ['hnspecial-message-container'],
-          content: message
-        })
-        header.appendChild(messageContainer)
-      }
-
-      // Wait for mark_as_read to complete if present
-      if (HNSpecial.moduleEnabled('mark_as_read')) {
-        HNSpecial.subscribe('mark as read added', complete)
-      } else {
-        complete()
-      }
+      var header = container.firstChild.firstChild
+      var messageContainer = _.createElement('div', {
+        classes: ['hnspecial-message-container'],
+        content: message
+      })
+      header.appendChild(messageContainer)
     }
 
     // TD with content (after the header)

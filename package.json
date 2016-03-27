@@ -77,13 +77,6 @@
       "description": "Adds a button to expand or collapse comments and their children"
     },
     {
-      "name": "markAsRead",
-      "title": "Mark As Read",
-      "type": "bool",
-      "value": false,
-      "description": "Allows you to mark links as visited, or to mark an entire page of links as read. Warning: this will add/remove items from your browser history."
-    },
-    {
       "name": "stickyHeader",
       "title": "Sticky Header",
       "type": "bool",

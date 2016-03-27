@@ -1,41 +1,9 @@
-let {Cc, Ci} = require('chrome')
-let {search} = require('sdk/places/history')
 var pageMod = require('sdk/page-mod')
 var self = require('sdk/self')
 var simplePrefs = require('sdk/simple-prefs')
 
 function notDataUrl (name) {
   return self.data.url(name).replace('/data/', '/')
-}
-
-var modules = {
-  mark_as_read: {
-    toggle: function (params) {
-      var self = this
-      search(params).on('end', function (results) {
-        if (results.length > 0) {
-          self.delete(params)
-        } else {
-          self.add(params)
-        }
-      })
-    },
-    delete: function (params) {
-      console.error('Removing: ', params.url)
-      Cc['@mozilla.org/browser/nav-history-service;1'].getService(
-        Ci.nsIBrowserHistory
-      ).removePage(params)
-    },
-    add: function (params) {
-      console.error('Adding: ', params.url)
-      Cc['@mozilla.org/browser/history;1'].getService(
-        Ci.mozIAsyncHistory
-      ).updatePlaces({
-        uri: params.url,
-        visitDate: new Date().toJSON().slice(0, 10)
-      })
-    }
-  }
 }
 
 getModule = function (name) {
@@ -70,9 +38,6 @@ reloadPageMod = function () {
   if (prefs.infiniteScrolling) {
     contentScripts.push(getModule('infinite-scrolling'))
   }
-  if (prefs.markAsRead) {
-    contentScripts.push(getModule('mark-as-read'))
-  }
   if (prefs.openLinksInNewTabs) {
     contentScripts.push(getModule('open-links-in-new-tabs'))
   }
@@ -106,18 +71,7 @@ reloadPageMod = function () {
       urlBase: notDataUrl(''),
       defaultOptions: JSON.stringify(prefs)
     },
-    contentStyleFile: contentStyles,
-    onAttach: function (worker) {
-      for (var moduleName in modules) {
-        var module = modules[moduleName]
-
-        for (var actionName in modules[moduleName]) {
-          worker.port.on(moduleName + '#' + actionName, function (params) {
-            module[actionName].call(module, params)
-          })
-        }
-      }
-    }
+    contentStyleFile: contentStyles
   })
 }
 

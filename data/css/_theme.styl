@@ -683,25 +683,6 @@ html.hnspecial-theme
                         background darken(page-background-color, 20%)
                         border 1px solid darken(page-background-color, 50%)
 
-    // Mark all as read
-    table:hover + .hnspecial-mark-all-as-read-container, .hnspecial-mark-all-as-read-container:hover
-        height 50px
-        padding-top 20px
-        opacity 1
-
-    .hnspecial-mark-all-as-read-container
-        opacity 0
-        width 100%
-        font-weight 200
-        padding-left 18px
-        color light-link-color
-
-        button
-            @extend $text-button
-            @extend $hnspecial-text-button
-            color light-link-color
-            margin-left 10px
-
     // Infinite scrolling separator
     .hnspecial-infinite-scroll-separator
         span
@@ -751,39 +732,6 @@ html.hnspecial-theme
       border-top: 7px solid black
 
 // END Visual theme specific styles
-
-// Mark as read
-.hnspecial-mark-as-read-button
-    border 0
-    background-color transparent
-    cursor pointer
-    margin 0
-    margin-right 4px
-    padding 0 3px 0 0
-    transition color 150ms ease
-
-    &:hover
-        color #666
-
-    &, &:active
-        color #b3b3b3
-
-.hnspecial-mark-all-as-read-container
-    transition all 150ms ease
-    transition-delay 700ms
-
-    box-sizing border-box
-    overflow hidden
-    height 0px
-    color black
-    padding-left 10px
-
-    button
-        margin-left 5px
-
-table:hover + .hnspecial-mark-all-as-read-container, .hnspecial-mark-all-as-read-container:hover
-    height 40px
-    padding-top 10px
 
 // Special message container
 .hnspecial-message-container

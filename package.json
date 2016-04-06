@@ -4,6 +4,7 @@
   "version": "1.4.4",
   "author": "Sean Lang <slang800@gmail.com>",
   "devDependencies": {
+    "jpm": "^1.0.6",
     "stylus": "^0.54.2"
   },
   "engines": {

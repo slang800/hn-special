@@ -5,14 +5,12 @@
   "author": "Sean Lang <slang800@gmail.com>",
   "devDependencies": {
     "jpm": "^1.0.6",
-    "stylus": "^0.54.2"
+    "stylus": "^0.54.2",
+    "svgexport": "^0.3.0"
   },
   "engines": {
     "firefox": ">=38.0"
   },
-  "icon": "./promo/icons/icon48.png",
-  "icon64": "./promo/icons/icon64.png",
-  "id": "hn-special@gabrielecirulli.github.io",
   "license": "GPL-3.0",
   "main": "index.js",
   "preferences": [

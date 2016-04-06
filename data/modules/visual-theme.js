@@ -31,7 +31,7 @@ if (ignore.indexOf(location.pathname) === -1) {
     logo.removeAttribute('style')
     logo.removeAttribute('width')
     logo.removeAttribute('height')
-    logo.setAttribute('src', HNSpecial.getUrl('resources/logo.svg'))
+    logo.setAttribute('src', HNSpecial.getUrl('logo.svg'))
   }
 
   // Apply to pages with a container

@@ -1,0 +1,8 @@
+*.xpi
+/.git
+/node_modules
+/promo/*.png
+/style
+Makefile
+*.md
+.gitkeep

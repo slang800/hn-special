@@ -2,6 +2,13 @@ var pageMod = require('sdk/page-mod')
 var self = require('sdk/self')
 var simplePrefs = require('sdk/simple-prefs')
 
+const EXCLUDE = [
+  'https://news.ycombinator.com/rss',
+  'https://news.ycombinator.com/bigrss',
+  'https://news.ycombinator.com/newsfaq.html',
+  'https://news.ycombinator.com/newsguidelines.html'
+]
+
 function notDataUrl (name) {
   return self.data.url(name).replace('/data/', '/')
 }
@@ -61,6 +68,7 @@ reloadPageMod = function () {
 
   currentPageMod = pageMod.PageMod({
     include: 'https://news.ycombinator.com/*',
+    exclude: EXCLUDE,
     attachTo: ['top', 'existing'],
     contentScriptFile: contentScripts,
     contentStyleFile: contentStyles

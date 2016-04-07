@@ -57,12 +57,6 @@
       "value": false
     },
     {
-      "name": "highlightLinksWhenReturning",
-      "title": "Highlight Links When Returning",
-      "type": "bool",
-      "value": true
-    },
-    {
       "name": "accurateDomainNames",
       "title": "Accurate Domain Names",
       "type": "bool",

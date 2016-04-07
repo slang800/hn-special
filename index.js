@@ -32,9 +32,6 @@ reloadPageMod = function () {
   if (prefs.foldComments) {
     contentScripts.push(getModule('fold-comments'))
   }
-  if (prefs.highlightLinksWhenReturning) {
-    contentScripts.push(getModule('highlight-links-when-returning'))
-  }
   if (prefs.infiniteScrolling) {
     contentScripts.push(getModule('infinite-scrolling'))
   }

@@ -1,25 +1,9 @@
-var prefs = JSON.parse(self.options.defaultOptions)
-
 function Settings () {
   var self = this
 
   this.loaded = false
   this.moduleQueue = []
   this.events = {}
-
-  // Load the settings
-  self.tips = prefs.tips
-
-  // Quick hack to hide the document before the theme is fully loaded (to avoid
-  // the ugly jump) It's animated in by the visual theme
-  if (prefs.theme !== 'none' || prefs.highContrast ||
-    prefs.grayVisitedLinks || prefs.stickyHeader) {
-    document.documentElement.classList.add('hnspecial-theme-preload')
-  }
-}
-
-Settings.prototype.getUrl = function (name) {
-  return self.options.urlBase + name
 }
 
 Settings.prototype.subscribe = function (event, callback) {

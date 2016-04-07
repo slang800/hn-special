@@ -65,10 +65,6 @@ reloadPageMod = function () {
     include: 'https://news.ycombinator.com/*',
     attachTo: ['top', 'existing'],
     contentScriptFile: contentScripts,
-    contentScriptOptions: {
-      urlBase: notDataUrl(''),
-      defaultOptions: JSON.stringify(prefs)
-    },
     contentStyleFile: contentStyles
   })
 }

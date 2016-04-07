@@ -2,7 +2,8 @@ var baseWidth = 40
 
 if (_.isCommentPage() || location.pathname.match(/^\/(item|threads)/)) {
   _.toArray(document.getElementsByClassName('default')).forEach(function (comment) {
-    var row = comment.parentElement.parentElement.parentElement.parentElement.parentElement // Least horrible way to get to the comment row
+    // Least horrible way to get to the comment row
+    var row = comment.parentElement.parentElement.parentElement.parentElement.parentElement
 
     // Skip this row if we're on a comment permalink page and it's the comment at the top
     if (row.nextElementSibling && row.nextElementSibling.getElementsByClassName('yclinks').length) return

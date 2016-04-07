@@ -58,7 +58,8 @@
 
         var val = ''
 
-        // Gather the text from the children elements in the <td>, adding newlines as needed
+        // Gather the text from the children elements in the <td>, adding
+        // newlines as needed
         _.toArray(valField.childNodes).forEach(function (node) {
           if (node.nodeType === 1) {
             var nodeName = node.nodeName.toLowerCase()
@@ -108,7 +109,8 @@
         tooltip.appendChild(clear)
       })
 
-      // Check if the tooltip is too big to fit on the screen and invert if it is
+      // Check if the tooltip is too big to fit on the screen and invert if it
+      // is
       var lowestPoint = offset('offsetTop') + container.offsetHeight
       if (lowestPoint > window.innerHeight) {
         container.style.top = offset('offsetTop') - container.offsetHeight

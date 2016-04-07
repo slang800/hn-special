@@ -1,7 +1,8 @@
 // The code in this module is ugly. It could use a rewrite.
 
 function getThreshold () {
-  return window.scrollY + button.getBoundingClientRect().bottom + 50 // getBoundingClientRect returns coordinates relative to the viewport
+  // getBoundingClientRect returns coordinates relative to the viewport
+  return window.scrollY + button.getBoundingClientRect().bottom + 50
 }
 
 function getButton (context) {
@@ -118,7 +119,9 @@ function loadLinks () {
       }
 
       loading = false
-      HNSpecial.emit('new links', additions) // Notify other modules about the presence of new links
+
+      // Notify other modules about the presence of new links
+      HNSpecial.emit('new links', additions)
 
     } else {
       replaceButton("Couldn't load the page. Please try refreshing.")

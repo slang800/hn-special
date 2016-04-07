@@ -31,6 +31,7 @@ reloadPageMod = function () {
   }
   if (prefs.foldComments) {
     contentScripts.push(getModule('fold-comments'))
+    contentStyles.push('./css/hn-theme-fold-comments.css')
   }
   if (prefs.infiniteScrolling) {
     contentScripts.push(getModule('infinite-scrolling'))

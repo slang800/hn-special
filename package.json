@@ -39,12 +39,6 @@
       ]
     },
     {
-      "name": "grayVisitedLinks",
-      "title": "Gray Visited Links",
-      "type": "bool",
-      "value": true
-    },
-    {
       "name": "infiniteScrolling",
       "title": "Infinite Scrolling",
       "type": "bool",

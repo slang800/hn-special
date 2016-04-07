@@ -55,9 +55,6 @@ reloadPageMod = function () {
     contentStyles.push('./css/hn-theme-light-contrast.css')
   }
 
-  if (prefs.grayVisitedLinks) {
-    contentStyles.push('./css/hn-theme-gray-visited-links.css')
-  }
   if (prefs.stickyHeader) {
     contentStyles.push('./css/hn-theme-sticky-header.css')
   }

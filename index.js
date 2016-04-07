@@ -46,6 +46,7 @@ reloadPageMod = function () {
   }
   if (prefs.userTooltips) {
     contentScripts.push(getModule('user-tooltips'))
+    contentStyles.push('./css/hn-theme-user-tooltips.css')
   }
 
   if (prefs.theme === 'light') {

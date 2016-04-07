@@ -9,6 +9,14 @@ if (_.isCommentPage() || location.pathname.match(/^\/(item|threads)/)) {
     if (row.nextElementSibling && row.nextElementSibling.getElementsByClassName('yclinks').length) return
 
     var comhead = comment.getElementsByClassName('comhead')[0]
+
+    // if we've already got a fold button then skip (can happen if the plugin is
+    // disabled and reenabled)
+    existingFoldButtons = comment.getElementsByClassName(
+      'hnspecial-fold-comment-button'
+    )
+    if (existingFoldButtons.length > 0) return
+
     comhead.appendChild(document.createTextNode(' | '))
 
     var button = _.createElement('button', {

@@ -4,7 +4,9 @@
   "version": "1.4.4",
   "author": "Sean Lang <slang800@gmail.com>",
   "devDependencies": {
+    "coffee-script": "^1.10.0",
     "jpm": "^1.0.6",
+    "standard-format": "^2.1.1",
     "stylus": "^0.54.2",
     "svgexport": "^0.3.0"
   },

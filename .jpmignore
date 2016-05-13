@@ -1,7 +1,10 @@
-*.xpi
-/.git
-/node_modules
-/style
-Makefile
 *.md
+*.xpi
+.editorconfig
+.git
+.gitignore
 .gitkeep
+.jpmignore
+Makefile
+node_modules
+style

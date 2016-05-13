@@ -1,7 +1,7 @@
 {
   "name": "hn-special",
   "description": "Refreshes the style of Hacker News and adds a few features, like infinite scrolling. Everything is toggleable.",
-  "version": "1.4.4",
+  "version": "0.0.0",
   "author": "Sean Lang <slang800@gmail.com>",
   "devDependencies": {
     "coffee-script": "^1.10.0",
